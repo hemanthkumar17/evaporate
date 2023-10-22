@@ -130,3 +130,14 @@ dmypy.json
 
 # Custom
 .sqlite.cache
+
+.function_cache/
+.results_dump/
+.data/
+evaporate/data/generative_indexes/fda_510ks/*.json
+evaporate/data/ground_truth/*.json
+evaporate/function_cache/*.pkl
+evaporate/results_dumps/*.pkl
+evaporate/data/fda_510ks/
+evaporate/data/pdf_v1/
+evaporate/data/*.gz

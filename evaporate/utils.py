@@ -203,10 +203,12 @@ def get_manifest_session(
         **cache_params,
     )
     
-    params = manifest.client_pool.get_client().get_model_params()
-    model_name = params["model_name"]
-    if "engine" in params:
-        model_name += f"_{params['engine']}"
+    # A scalability code, which doesnt work here for some reason
+    # Most likely a version mismatch, even though they are maintained by the same people
+    # params = manifest.client_pool.get_client().get_model_params()
+    model_name = "OpenAI_gpt3.5"
+    # if "engine" in params:
+    #     model_name += f"_{params['engine']}"
     return manifest, model_name
 
 

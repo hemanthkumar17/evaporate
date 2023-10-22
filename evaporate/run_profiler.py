@@ -52,7 +52,7 @@ def chunk_files(file_group, parser, chunk_size, remove_tables, max_chunks_per_fi
 
 
 # chunking & preparing data
-def prepare_data(profiler_args, file_group, parser = "html"):
+def prepare_data(profiler_args, file_group, parser = "txt"):
     data_lake = profiler_args.data_lake
     if profiler_args.body_only:
         body_only = profiler_args.body_only
@@ -68,7 +68,7 @@ def prepare_data(profiler_args, file_group, parser = "html"):
         with open(f".cache/{data_lake}_size{len(file_group)}_chunkSize{profiler_args.chunk_size}_{suffix}_file2contents.pkl", "rb") as f:
             file2contents = pickle.load(f)
     else:
-        
+
         file2chunks, file2contents = chunk_files(
             file_group, 
             parser,
@@ -280,15 +280,16 @@ def run_experiment(profiler_args):
             total_time = t1-t0
             total_tokens_prompted += num_toks
             total_time_dict[f'schemaId'][f'totalTime_trainSize{train_size}'] = int(total_time)
-
-            results = evaluate_synthetic_main(
-                run_string,
-                args, 
-                profiler_args, 
-                data_lake, 
-                stage='schema_id'
-            )
-            results_by_train_size[train_size]['schema_id'] = results
+            # Removing evaluating of scores due to the need for ground truths
+            # Can run for their dataset if necessary
+            # results = evaluate_synthetic_main(
+            #     run_string,
+            #     args, 
+            #     profiler_args, 
+            #     data_lake, 
+            #     stage='schema_id'
+            # )
+            results_by_train_size[train_size]['schema_id'] = ""
 
         if 1:
             if do_end_to_end:
@@ -306,7 +307,10 @@ def run_experiment(profiler_args):
                 attributes = [item[0].lower() for item in pred_metadata]
             else:
                 attributes = gold_attributes
-
+            print("*"*50)
+            # Printing attributes for each chunk here
+            print(attributes)
+            print("*"*50)
             # top-level information extraction
             num_collected = 0
             for i, attribute in enumerate(attributes):

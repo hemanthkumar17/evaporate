@@ -1,3 +1,7 @@
 [submodule "metal-evap"]
 	path = metal-evap
-	url = git@github.com:simran-arora/metal-evap.git
+	url = https://git@github.com/simran-arora/metal-evap.git
+
+[submodule "manifest"]
+	path = manifest
+	url = https://github.com/HazyResearch/manifest.git

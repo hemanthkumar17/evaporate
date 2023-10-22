@@ -1,7 +1,7 @@
 import argparse
 import os
 
-def get_args(database_name, BASE_DATA_DIR = "/data/evaporate/"):
+def get_args(database_name, BASE_DATA_DIR = "./data/"):
     
     parser = argparse.ArgumentParser(
         "LLM explorer.",
@@ -57,13 +57,21 @@ def get_args(database_name, BASE_DATA_DIR = "/data/evaporate/"):
 
     CONSTANTS = {
         "fda_510ks": {
-            "data_dir": os.path.join(BASE_DATA_DIR, "fda-ai-pmas/510k/"),
+            "data_dir": os.path.join(BASE_DATA_DIR, "fda_510ks/"),
             "database_name": "fda_510ks",
             "cache_dir": ".cache/fda_510ks/",
             "generative_index_path": os.path.join(BASE_DATA_DIR, "generative_indexes/fda_510ks/"),
             "gold_extractions_file": os.path.join(BASE_DATA_DIR, "ground_truth/fda_510ks_gold_extractions.json"),
             "topic": "fda 510k device premarket notifications",
         },
+        "pdf_v1": {
+            "data_dir": os.path.join(BASE_DATA_DIR, "pdf_v1/"),
+            "database_name": "fda_510ks",
+            "cache_dir": ".cache/pdf/",
+            "generative_index_path": os.path.join(BASE_DATA_DIR, "generative_indexes/pdf/"),
+            "gold_extractions_file": os.path.join(BASE_DATA_DIR, "ground_truth/pdf_gold_extractions.json"),
+            "topic": "fda 510k device premarket notifications",
+        }
     }
 
     args = parser.parse_args(args=[])

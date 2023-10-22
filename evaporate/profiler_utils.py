@@ -309,8 +309,10 @@ def get_html_parse(content, chunk_size=5000, mode="train", remove_tables=False, 
 def get_txt_parse(content, chunk_size=5000, mode="train"):
     # convert to chunks
     if mode == "train":
+        # print(content)
         chunks = content.split("\n")
         clean_chunks = []
+        print(len(chunks))
         for chunk in chunks:
             if len(chunk) > chunk_size:
                 sub_chunks = chunk.split(". ")

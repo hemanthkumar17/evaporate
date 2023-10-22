@@ -1,3 +1,22 @@
+# Updates to the code
+
+Some edits to the code to remove content not required, for example F1 scores, etc <br>
+
+Start by moving the data files into the ./data/ folder. <br>
+Run the following code to run it <br> 
+
+```
+cd evaporate
+
+python3 run_profiler.py     --data_lake fda_510ks     --do_end_to_end True     --num_attr_to_cascade 1     --num_top_k_scripts 10     --train_size 10     --combiner_mode top_k     --use_dynamic_backoff True     --KEYS <openai_key>
+```
+### Important flags to note
+
+- --do_end_to_end attempts to get the attributes and use it, instead of requiring it beforehand to use for generation
+- --combiner_mode=top_k decides if weak supervision is added or not. Currently WS is disabled for better functionality.
+- --KEYS indicate the flag to input the openAI key to use for the experiment
+
+---
 # Evaporate
 
 <div align="center">

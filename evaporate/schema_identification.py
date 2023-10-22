@@ -47,7 +47,8 @@ def directly_extract_from_chunks_w_value(
             try: 
                 result, num_toks = apply_prompt(
                     Step(prompt), 
-                    max_toks=500, 
+                    # Improving capabilities to ensure we can be assured of answers
+                    max_toks=2000, 
                     manifest=manifest_session, 
                     overwrite_cache=overwrite_cache
                 )

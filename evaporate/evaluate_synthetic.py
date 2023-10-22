@@ -539,6 +539,8 @@ def main(
     if stage and stage != 'openie':
         pass
     else:
+        print(overall_results)
+        return overall_results
         openie_results = evaluate_openie_quality(
             run_string,
             args, 
