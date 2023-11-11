@@ -25,7 +25,10 @@ def directly_extract_from_chunks_w_value(
     file2results = defaultdict()
     num_chunks_per_file = [len(file2chunks[file]) for file in file2chunks]
     avg_num_chunks_per_file = statistics.mean(num_chunks_per_file)
-    stdev_num_chunks_per_file = statistics.stdev(num_chunks_per_file)
+    if len(num_chunks_per_file) == 1:
+        stdev_num_chunks_per_file = 0
+    else:
+        stdev_num_chunks_per_file = statistics.stdev(num_chunks_per_file)
 
     for i, file in enumerate(sample_files):
         chunks = file2chunks[file]

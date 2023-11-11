@@ -252,11 +252,13 @@ def get_topk_scripts_per_field(
     top_k_values = [
         max(v['average_f1'], v['median_f1']) for k, v in script2avg.items() if k != gold_key
     ]
+    print("top_k_values: ", top_k_values)
     if not top_k_values:
         return []
     
     best_value = top_k_values[0]
     best_script = top_k_scripts[0]
+    print("best_value: ", best_value)
     if best_value < keep_thresh and do_end_to_end:
         return []
 
@@ -280,7 +282,7 @@ def get_topk_scripts_per_field(
             ) < cost_thresh
         ]
         num_fns = len(top_k_fns)
-    
+    print("num_fns: ", num_fns)
     if num_fns:
         top_k_scripts = top_k_scripts[0:min(k, num_fns)]
     else:

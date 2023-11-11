@@ -647,7 +647,6 @@ def run_profiler(run_string, args, file2chunks, file2contents, sample_files, gro
         do_end_to_end=profiler_args.do_end_to_end,
         combiner_mode=profiler_args.combiner_mode,
     )
-
     if not selected_keys and profiler_args.do_end_to_end:
         print(f"Removing {file_attribute}")
         if os.path.exists(save_path):
@@ -686,7 +685,7 @@ def run_profiler(run_string, args, file2chunks, file2contents, sample_files, gro
     total_tokens_prompted += num_toks
 
     # FINAL CHECK: Ensure that the metadata is valid (Skip this for ClosedIE).
-    if profiler_args.do_end_to_end:
+    if profiler_args.do_end_to_end and False:
         keep_attribute, num_toks = check_remove_attribute(
             file2metadata, 
             attribute, 
@@ -722,6 +721,10 @@ def run_profiler(run_string, args, file2chunks, file2contents, sample_files, gro
         with open(f"{args.generative_index_path}/{run_string}_{file_attribute}_top_k_extractions.json", "w") as f:
             json.dump(top_k_extractions, f)
 
+        print("Saving all data into gen index files")
+        print(all_extractions)
+        print(selected_keys)
+        print(top_k_extractions)
         print(f"Save path: {args.generative_index_path}/{run_string}_{file_attribute}_all_extractions.json")
         return total_tokens_prompted, 1
 

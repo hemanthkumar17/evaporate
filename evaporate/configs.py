@@ -64,6 +64,14 @@ def get_args(database_name, BASE_DATA_DIR = "./data/"):
             "gold_extractions_file": os.path.join(BASE_DATA_DIR, "ground_truth/fda_510ks_gold_extractions.json"),
             "topic": "fda 510k device premarket notifications",
         },
+        "10k_corp": {
+            "data_dir": os.path.join(BASE_DATA_DIR, "10k_corp/"),
+            "database_name": "10k_corp",
+            "cache_dir": ".cache/10k_corp/",
+            "generative_index_path": os.path.join(BASE_DATA_DIR, "generative_indexes/10k_corp/"),
+            "gold_extractions_file": os.path.join(BASE_DATA_DIR, "ground_truth/10k_corp_gold_extractions.json"),
+            "topic": "10k Corporation financial documents",
+        },
         "pdf_v1": {
             "data_dir": os.path.join(BASE_DATA_DIR, "pdf_v1/"),
             "database_name": "fda_510ks",

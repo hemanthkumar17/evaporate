@@ -141,3 +141,4 @@ evaporate/results_dumps/*.pkl
 evaporate/data/fda_510ks/
 evaporate/data/pdf_v1/
 evaporate/data/*.gz
+evaporate/data/10k_json/
