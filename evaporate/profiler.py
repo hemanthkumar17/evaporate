@@ -722,9 +722,9 @@ def run_profiler(run_string, args, file2chunks, file2contents, sample_files, gro
             json.dump(top_k_extractions, f)
 
         print("Saving all data into gen index files")
-        print(all_extractions)
-        print(selected_keys)
-        print(top_k_extractions)
+        # print(all_extractions)
+        # print(selected_keys)
+        # print(top_k_extractions)
         print(f"Save path: {args.generative_index_path}/{run_string}_{file_attribute}_all_extractions.json")
         return total_tokens_prompted, 1
 
